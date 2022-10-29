@@ -44,5 +44,6 @@ public abstract class MixinGuiContainer extends GuiScreen {
 
         if(textField1.isFocused()) return;
         text += typedChar;
+        System.out.println("GuiTextField drawn.");
     }
 }
