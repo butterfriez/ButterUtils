@@ -1,7 +1,8 @@
+package com.butterutil
+
 import com.butterutil.commands.MainCommand
 import com.butterutil.config.Config
 import com.butterutil.config.PersistentData
-import com.butterutil.features.ItemHoverOver
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiScreen
 import net.minecraftforge.client.ClientCommandHandler
@@ -26,21 +27,20 @@ class ButterUtils {
     @Mod.EventHandler
     fun preInit(event: FMLPreInitializationEvent) {
         metadata = event.modMetadata
-        val directory = File(event.modConfigurationDirectory, event.modMetadata.modId)
+        val directory = File(event.modConfigurationDirectory, "ambientaddons-forge")
         directory.mkdirs()
         configDirectory = directory
         persistentData = PersistentData.load()
-        config = Config
-        config.preload()
     }
 
     @Mod.EventHandler
     fun onInit(event: FMLInitializationEvent) {
+        config.init()
         ClientCommandHandler.instance.registerCommand(MainCommand())
 
         listOf(
             this,
-            ItemHoverOver(),
+
         ).forEach(MinecraftForge.EVENT_BUS::register)
     }
 
