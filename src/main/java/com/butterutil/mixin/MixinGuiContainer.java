@@ -39,7 +39,7 @@ public abstract class MixinGuiContainer extends GuiScreen {
      * @author Butther
      */
     @Overwrite
-    protected void keyTyped(char typedChar, int keyCode) throws IOException {
+    protected void keyTyped(char typedChar, int keyCode) {
         this.textField1.textboxKeyTyped(typedChar, keyCode);
 
         if(textField1.isFocused()) return;
