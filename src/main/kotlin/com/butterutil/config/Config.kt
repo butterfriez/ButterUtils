@@ -6,7 +6,7 @@ import java.io.File
 
 
 object Config : Vigilant(
-    File(ButterUtils.configDirectory, "config.toml"),
+    File("./config/butterutil/", "config.toml"),
     ButterUtils.metadata.name
 ) {
     var itemHover = false;

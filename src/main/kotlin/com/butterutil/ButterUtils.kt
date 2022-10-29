@@ -31,6 +31,7 @@ class ButterUtils {
         configDirectory = directory
         persistentData = PersistentData.load()
         config = Config
+        config.preload()
     }
 
     @Mod.EventHandler

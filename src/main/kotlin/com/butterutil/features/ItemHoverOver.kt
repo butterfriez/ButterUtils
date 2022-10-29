@@ -1,34 +1,35 @@
 package com.butterutil.features
 
-import ButterUtils.Companion
 import com.butterutil.config.Config
+import net.minecraft.client.gui.GuiScreen
 import net.minecraft.client.gui.GuiTextField
-import net.minecraftforge.client.event.GuiOpenEvent
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
-import net.minecraftforge.fml.common.gameevent.TickEvent
 
-class ItemHoverOver {
-    var text: String? = null;
+class ItemHoverOver : GuiScreen() {
+    var text:String = ""
+    private var textField : GuiTextField? = null
 
-    private var textField: GuiTextField = GuiTextField(1, Companion.mc.fontRendererObj, 25, 25, 25, 25)
+    override fun initGui() {
+        super.initGui()
 
-    @SubscribeEvent
-    fun guiOpen(e: GuiOpenEvent) {
-        if(Config.itemHover) {
-            drawTextField()
-        }
+        this.textField = GuiTextField(0, mc.fontRendererObj, 25, 25, 25, 25)
+        this.textField!!.setTextColor(-1);
+        this.textField!!.setDisabledTextColour(-1);
+        this.textField!!.enableBackgroundDrawing = false;
+        this.textField!!.maxStringLength = 50;
+        this.textField!!.setEnabled(true);
+        this.textField!!.text = text;
+        this.textField!!.isFocused = false;
+        this.textField!!.setCursorPositionEnd();
     }
-    @SubscribeEvent
-    fun onTick(e: TickEvent) {
-        text = textField.text.toString()
-    }
 
-    private fun drawTextField() {
-        var x = Companion.mc.displayWidth / 3.5
-        var y = Companion.mc.displayHeight / 2
-        textField.xPosition = x.toInt()
-        textField.yPosition = y
-        textField.visible = true
-        textField.drawTextBox()
+    override fun drawScreen(mouseX: Int, mouseY: Int, partialTicks: Float) {
+        super.drawScreen(mouseX, mouseY, partialTicks)
+        if(Config.itemHover) return
+        this.textField!!.drawTextBox()
+    }
+    override fun keyTyped(typedChar: Char, keyCode: Int) {
+        super.keyTyped(typedChar, keyCode)
+
+        text += typedChar
     }
 }
