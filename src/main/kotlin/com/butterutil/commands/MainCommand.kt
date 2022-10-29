@@ -1,6 +1,6 @@
 package com.butterutil.commands
 
-import ButterUtils
+import com.butterutil.ButterUtils
 import com.butterutil.config.Config
 import net.minecraft.command.CommandBase
 import net.minecraft.command.ICommandSender

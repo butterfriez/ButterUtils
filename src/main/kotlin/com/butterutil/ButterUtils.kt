@@ -27,7 +27,7 @@ class ButterUtils {
     @Mod.EventHandler
     fun preInit(event: FMLPreInitializationEvent) {
         metadata = event.modMetadata
-        val directory = File(event.modConfigurationDirectory, "ambientaddons-forge")
+        val directory = File(event.modConfigurationDirectory, "butterutil")
         directory.mkdirs()
         configDirectory = directory
         persistentData = PersistentData.load()
@@ -35,7 +35,7 @@ class ButterUtils {
 
     @Mod.EventHandler
     fun onInit(event: FMLInitializationEvent) {
-        config.init()
+        Config.init()
         ClientCommandHandler.instance.registerCommand(MainCommand())
 
         listOf(
@@ -56,7 +56,6 @@ class ButterUtils {
         var currentGui: GuiScreen? = null
 
         lateinit var configDirectory: File
-        lateinit var config: Config
         lateinit var persistentData: PersistentData
 
         lateinit var metadata: ModMetadata
