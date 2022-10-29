@@ -1,5 +1,6 @@
-package com.examplemod.config
+package com.butterutil.config
 
+import ButterUtils
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 import kotlinx.serialization.json.Json
@@ -18,7 +19,7 @@ data class PersistentData(
     }
 
     companion object {
-        private val configFile: File = File(ExampleMod.configDirectory,"data.json")
+        private val configFile: File = File(ButterUtils.configDirectory,"data.json")
 
         fun load(): PersistentData {
             val data = if (!configFile.exists()) {

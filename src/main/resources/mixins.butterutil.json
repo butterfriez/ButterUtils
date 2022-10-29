@@ -1,6 +1,6 @@
 {
-  "package": "com.examplemod.mixin",
-  "refmap": "mixins.examplemod.refmap.json",
+  "package": "com.butterutil.mixin",
+  "refmap": "mixins.butterutil.refmap.json",
   "minVersion": "0.7",
   "compatibilityLevel": "JAVA_8",
   "client": [

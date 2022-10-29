@@ -1,6 +1,6 @@
-import com.examplemod.commands.ExampleCommand
-import com.examplemod.config.Config
-import com.examplemod.config.PersistentData
+import com.butterutil.commands.MainCommand
+import com.butterutil.config.Config
+import com.butterutil.config.PersistentData
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiScreen
 import net.minecraftforge.client.ClientCommandHandler
@@ -14,13 +14,13 @@ import net.minecraftforge.fml.common.gameevent.TickEvent
 import java.io.File
 
 @Mod(
-    modid = "examplemod",
-    name = "ExampleMod",
+    modid = "butterutil",
+    name = "Butter Utils",
     version = "1.0",
     useMetadata = true,
     clientSideOnly = true
 )
-class ExampleMod {
+class ButterUtils {
 
     @Mod.EventHandler
     fun preInit(event: FMLPreInitializationEvent) {
@@ -34,7 +34,7 @@ class ExampleMod {
 
     @Mod.EventHandler
     fun onInit(event: FMLInitializationEvent) {
-        ClientCommandHandler.instance.registerCommand(ExampleCommand())
+        ClientCommandHandler.instance.registerCommand(MainCommand())
 
         listOf(
             this

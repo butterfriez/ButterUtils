@@ -12,7 +12,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
-group = "ExampleMod"
+group = "butterutil"
 version = "1.0"
 
 java {
@@ -31,15 +31,15 @@ loom {
             property("mixin.debug", "true")
             property("asmhelper.verbose", "true")
             arg("--tweakClass", "org.spongepowered.asm.launch.MixinTweaker")
-            arg("--mixin", "mixins.examplemods.json")
+            arg("--mixin", "mixins.butterutil.json")
         }
     }
     forge {
         pack200Provider.set(dev.architectury.pack200.java.Pack200Adapter())
-        mixinConfig("mixins.examplemod.json")
+        mixinConfig("mixins.butterutil.json")
     }
     mixin {
-        defaultRefmapName.set("mixins.examplemod.refmap.json")
+        defaultRefmapName.set("mixins.butterutil.refmap.json")
     }
 }
 
@@ -96,7 +96,7 @@ tasks.withType(Jar::class) {
         this["FMLCorePluginContainsFMLMod"] = "true"
         this["ForceLoadAsMod"] = "true"
 
-        this["MixinConfigs"] = "mixins.examplemod.json"
+        this["MixinConfigs"] = "mixins.butterutil.json"
 
         this["TweakClass"] = "gg.essential.loader.stage0.EssentialSetupTweaker"
         this["TweakOrder"] = "0"
