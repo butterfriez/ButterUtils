@@ -1,6 +1,7 @@
 import com.butterutil.commands.MainCommand
 import com.butterutil.config.Config
 import com.butterutil.config.PersistentData
+import com.butterutil.features.ItemHoverOver
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiScreen
 import net.minecraftforge.client.ClientCommandHandler
@@ -37,7 +38,8 @@ class ButterUtils {
         ClientCommandHandler.instance.registerCommand(MainCommand())
 
         listOf(
-            this
+            this,
+            ItemHoverOver(),
         ).forEach(MinecraftForge.EVENT_BUS::register)
     }
 
