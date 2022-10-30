@@ -11,13 +11,12 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.awt.*;
-import java.io.IOException;
 
 @Mixin(GuiContainer.class)
 public abstract class MixinGuiContainer extends GuiScreen {
 
     private GuiTextField textField1;
-    public String text;
+    public String text = "";
 
     @Inject(method = "initGui", at=@At("RETURN"))
     private void initGui(final CallbackInfo callbackInfo) {
@@ -28,11 +27,11 @@ public abstract class MixinGuiContainer extends GuiScreen {
 
     @Inject(method = "drawScreen", at=@At("RETURN"))
     private void drawScreen(CallbackInfo ci) {
-        if(Config.INSTANCE.getItemHover()) {
+        //if(Config.INSTANCE.getItemHover()) {
             fontRendererObj.drawStringWithShadow("Item Hover Over", 200, 10 + 25, Color.WHITE.getRGB());
 
             this.textField1.drawTextBox();
-        }
+        //}
     }
 
     /**
