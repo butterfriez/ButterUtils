@@ -3,6 +3,7 @@ package com.butterutil
 import com.butterutil.commands.MainCommand
 import com.butterutil.config.Config
 import com.butterutil.config.PersistentData
+import com.butterutil.features.ItemHover
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiScreen
 import net.minecraftforge.client.ClientCommandHandler
@@ -40,9 +41,10 @@ class ButterUtils {
 
         listOf(
             this,
-
+            ItemHover()
         ).forEach(MinecraftForge.EVENT_BUS::register)
     }
+
 
     @SubscribeEvent
     fun onTick(event: TickEvent.ClientTickEvent) {

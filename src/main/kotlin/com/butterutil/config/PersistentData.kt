@@ -10,8 +10,7 @@ import kotlinx.serialization.decodeFromString
 
 @Serializable
 data class PersistentData(
-    var exampleData: Map<String, String> = mapOf("key1" to "entry1"),
-    var moreExampleData: Int = 5
+    var text:String = ""
 ) {
 
     fun save() {
@@ -19,7 +18,7 @@ data class PersistentData(
     }
 
     companion object {
-        private val configFile: File = File("./config/butterutil/config.toml")
+        private val configFile: File = File("./config/butterutil/config.json")
 
         fun load(): PersistentData {
             val data = if (!configFile.exists()) {
