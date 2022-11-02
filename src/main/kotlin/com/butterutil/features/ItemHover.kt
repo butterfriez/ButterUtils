@@ -35,4 +35,11 @@ class ItemHover {
 
         var Text: String = ""
     }*/
+    companion object {
+        val text: String
+            get() {
+                return text
+            }
+
+    }
 }

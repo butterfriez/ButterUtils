@@ -33,7 +33,7 @@ object Config : Vigilant(
         description = "Method to show if item has text-field text in its lore.",
         options = ["Highlight", "Lore"]
     )
-    var itemHoverType = "Highlight"
+    var itemHoverType = 0
 
     init {
 

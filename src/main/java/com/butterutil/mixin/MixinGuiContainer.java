@@ -42,6 +42,7 @@ public abstract class MixinGuiContainer extends GuiScreen {
 
     /**
      * @author Butther
+     * @reason yes
      */
     @Overwrite
     protected void keyTyped(char typedChar, int keyCode) throws IOException{
@@ -54,6 +55,6 @@ public abstract class MixinGuiContainer extends GuiScreen {
             this.textField1.setVisible(false);
         }
         if(textField1.isFocused()) return;
-        ItemHover.Companion.setText(ItemHover.Companion.getText() + typedChar);
+        textField1.setText(ItemHover.Companion.getText() + typedChar);
     }
 }

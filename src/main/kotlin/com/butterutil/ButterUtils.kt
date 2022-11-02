@@ -3,6 +3,7 @@ package com.butterutil
 import com.butterutil.commands.MainCommand
 import com.butterutil.config.Config
 import com.butterutil.config.PersistentData
+import com.butterutil.features.HypixelButton
 import com.butterutil.features.ItemHover
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiScreen
@@ -41,7 +42,8 @@ class ButterUtils {
 
         listOf(
             this,
-            ItemHover()
+            ItemHover(),
+            HypixelButton(),
         ).forEach(MinecraftForge.EVENT_BUS::register)
     }
 
