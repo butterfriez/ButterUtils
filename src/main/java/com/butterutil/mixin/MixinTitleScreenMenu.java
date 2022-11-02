@@ -1,11 +1,12 @@
 package com.butterutil.mixin;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.*;
+import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.realms.RealmsBridge;
 import net.minecraft.world.demo.DemoWorldServer;
 import net.minecraft.world.storage.ISaveFormat;
 import net.minecraft.world.storage.WorldInfo;
+import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.GuiModList;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -14,14 +15,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.io.IOException;
 
+//int j = this.height / 4 + 48;
+//j + 72 + 12
 /**
  * @author Dalwyn (used his hypixelbutton ct module as idea.)
  */
 @Mixin(GuiMainMenu.class)
 public abstract class MixinTitleScreenMenu extends GuiScreen {
+    int y = 0;
+
     @Inject(method = "initGui", at = @At("RETURN"))
     private void initGui(final CallbackInfo cbi) {
-        this.buttonList.add(new GuiButton(69420, this.width / 2 - 100, this.height / 2 + 100, "Play Hypixel"));
+        int y = this.height / 4 + 48 + 72 + 12; // final buttons @ bottom of MainMenu
+        this.buttonList.add(new GuiButton(69420, this.width / 2 - 100, y + 25, "Play Hypixel"));
 
         super.initGui();
     }
@@ -32,6 +38,10 @@ public abstract class MixinTitleScreenMenu extends GuiScreen {
             //me
             case 69420:
                 System.out.println("works!");
+                FMLClientHandler.instance().connectToServer(
+                        new GuiMultiplayer(new GuiMainMenu()),
+                        new ServerData("Server", "play.hypixel.net", false)
+                );
                 break;
             /**
              * @author mojang
