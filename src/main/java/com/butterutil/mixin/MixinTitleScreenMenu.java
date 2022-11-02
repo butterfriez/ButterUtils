@@ -21,7 +21,7 @@ import java.io.IOException;
 public abstract class MixinTitleScreenMenu extends GuiScreen {
     @Inject(method = "initGui", at = @At("RETURN"))
     private void initGui(final CallbackInfo cbi) {
-        this.buttonList.add(new GuiButton(69420, this.width + 1, this.height / 2 + 100, "Play Hypixel"));
+        this.buttonList.add(new GuiButton(69420, this.width - 100, this.height / 2 + 100, "Play Hypixel"));
 
         super.initGui();
     }
