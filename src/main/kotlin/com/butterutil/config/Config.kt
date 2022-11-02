@@ -35,6 +35,14 @@ object Config : Vigilant(
     )
     var itemHoverType = 0
 
+    @Property(
+        type = PropertyType.SWITCH,
+        name = "Hypixel Button",
+        category = "Misc",
+        subcategory = "QOL",
+        description = "Adds button to main menu that makes you join hypixel."
+    )
+    var HypixelButton = false
     init {
 
     }
@@ -49,6 +57,6 @@ object Config : Vigilant(
     }
 
     private val configCategories = listOf(
-        "Main"
+        "Main", "Misc"
     )
 }
