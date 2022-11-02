@@ -1,3 +1,7 @@
+/**
+ * @author Dalwyn (Hypixel Button CTJS Module As Reference)
+ */
+
 package com.butterutil.features
 
 import net.minecraft.client.gui.GuiButton
