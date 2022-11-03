@@ -32,7 +32,9 @@ class ButterUtils {
         directory.mkdirs()
         configDirectory = directory
         persistentData = PersistentData.load()
+        config = Config.apply { this.initialize() }
     }
+
 
     @Mod.EventHandler
     fun onInit(event: FMLInitializationEvent) {
@@ -49,17 +51,18 @@ class ButterUtils {
     @SubscribeEvent
     fun onTick(event: TickEvent.ClientTickEvent) {
         if (event.phase != TickEvent.Phase.START || currentGui == null) return
-        mc.displayGuiScreen(currentGui)
+        Minecraft.getMinecraft().displayGuiScreen(currentGui)
         currentGui = null
     }
 
     companion object {
-        val mc: Minecraft = Minecraft.getMinecraft()
+        fun isInitialized(): Boolean {
+            return ::config.isInitialized
+        }
         var currentGui: GuiScreen? = null
-
         lateinit var configDirectory: File
         lateinit var persistentData: PersistentData
-
+        lateinit var config :Config
         lateinit var metadata: ModMetadata
     }
 }

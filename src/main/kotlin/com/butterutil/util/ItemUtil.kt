@@ -1,9 +1,9 @@
 package com.butterutil.util
 
-import com.butterutil.ButterUtils.Companion.mc
 import com.butterutil.util.ItemUtil.enchants
 import com.butterutil.util.ItemUtil.extraAttributes
 import com.butterutil.util.ItemUtil.skyblockID
+import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiScreen
 import net.minecraft.client.gui.inventory.GuiChest
 import net.minecraft.inventory.ContainerChest
@@ -13,8 +13,8 @@ import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.StringUtils
 
-
 object ItemUtil {
+    private val mc:Minecraft = Minecraft.getMinecraft()
     fun String.substringBetween(start: String, end: String): String {
         return this
             .substringAfter("(", "")

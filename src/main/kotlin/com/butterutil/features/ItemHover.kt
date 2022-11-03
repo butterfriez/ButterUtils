@@ -1,14 +1,5 @@
 package com.butterutil.features
 
-import com.butterutil.ButterUtils.Companion.mc
-import com.butterutil.util.ItemUtil.chest
-import com.butterutil.util.ItemUtil.items
-import com.butterutil.util.ItemUtil.lore
-import gg.essential.universal.UChat
-import net.minecraft.item.ItemStack
-import net.minecraftforge.client.event.GuiScreenEvent
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
-
 class ItemHover {
     //ill work on this shit later this is so confusing
     /*@SubscribeEvent
