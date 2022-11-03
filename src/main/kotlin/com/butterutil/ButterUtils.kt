@@ -1,6 +1,5 @@
 package com.butterutil
 
-import com.butterutil.features.DiscordRichPresence
 import com.butterutil.commands.MainCommand
 import com.butterutil.config.Config
 import com.butterutil.config.PersistentData
@@ -46,7 +45,6 @@ class ButterUtils {
         listOf(
             this,
             ItemHover(),
-            DiscordRichPresence(),
         ).forEach(MinecraftForge.EVENT_BUS::register)
     }
 
