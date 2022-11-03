@@ -43,11 +43,32 @@ object Config : Vigilant(
         description = "Adds button to main menu that makes you join hypixel."
     )
     var HypixelButton = false
+
+    @Property(
+        type = PropertyType.SWITCH,
+        name = "Discord Rich Presence",
+        category = "Misc",
+        subcategory = "Extras",
+        description = "Sets your status on discord."
+    )
+    var DRP = false
+
+    @Property(
+        type = PropertyType.TEXT,
+        name = "Discord Client ID",
+        category = "Misc",
+        subcategory = "Extras",
+        description = "Stuff used for Discord Rich Presence.",
+    )
+    var ClientID = ""
     init {
 
     }
     fun init() {
         initialize()
+
+        addDependency("ClientID", "DRP")
+
     }
 
     private object Sorting : SortingBehavior() {
