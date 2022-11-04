@@ -74,13 +74,11 @@ object Config : Vigilant(
     var notActiveTerminalColor = Color.RED.rgb
 
     init {
-
+        addDependency("activeTerminalColor", "TerminalEsp")
+        addDependency("notActiveTerminalColor", "TerminalEsp")
     }
     fun init() {
         initialize()
-
-        addDependency("activeTerminalColor", "TerminalEsp")
-        addDependency("notActiveTerminalColor", "TerminalEsp")
     }
 
     private object Sorting : SortingBehavior() {

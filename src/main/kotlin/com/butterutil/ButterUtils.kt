@@ -33,7 +33,6 @@ class ButterUtils {
         directory.mkdirs()
         configDirectory = directory
         persistentData = PersistentData.load()
-        config = Config.apply { this.initialize() }
     }
 
 
