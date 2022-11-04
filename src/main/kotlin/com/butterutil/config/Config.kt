@@ -5,6 +5,7 @@ import gg.essential.vigilance.data.Category
 import gg.essential.vigilance.data.Property
 import gg.essential.vigilance.data.PropertyType
 import gg.essential.vigilance.data.SortingBehavior
+import java.awt.Color
 
 import java.io.File
 import java.util.function.Consumer
@@ -44,12 +45,42 @@ object Config : Vigilant(
     )
     var HypixelButton = false
 
+    //terminal esp
+    @Property(
+        type = PropertyType.SWITCH,
+        name = "Terminal Esp",
+        category = "Main",
+        subcategory = "Terminal Esp",
+        description = "Adds waypoints in p3 of f7 where terminals are. Displays if terminal is active or not."
+    )
+    var TerminalEsp = false
+
+    @Property(
+        type = PropertyType.COLOR,
+        name = "Waypoints Color",
+        category = "Main",
+        subcategory = "Terminal Esp",
+        description = "Terminal waypoints text color. <TERMINAL ACTIVE>"
+    )
+    var activeTerminalColor = Color.GREEN.rgb
+
+    @Property(
+        type = PropertyType.COLOR,
+        name = "Waypoints Color",
+        category = "Main",
+        subcategory = "Terminal Esp",
+        description = "Terminal waypoints text color. <TERMINAL NOT ACTIVE>"
+    )
+    var notActiveTerminalColor = Color.RED.rgb
+
     init {
 
     }
     fun init() {
         initialize()
 
+        addDependency("activeTerminalColor", "TerminalEsp")
+        addDependency("notActiveTerminalColor", "TerminalEsp")
     }
 
     private object Sorting : SortingBehavior() {
@@ -62,3 +93,13 @@ object Config : Vigilant(
         "Main", "Misc"
     )
 }
+
+// how to gitignore this
+//        listOf(
+//            "wormFishingLavaESPRadius",
+//            "wormFishingLavaESPTime",
+//            "wormFishingLavaHideNear",
+//            "wormFishingHideFished"
+//        ).forEach(Consumer { s: String ->
+//            addDependency(s, "wormFishingLavaESP")
+//        })

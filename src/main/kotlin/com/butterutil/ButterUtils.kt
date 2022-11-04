@@ -4,6 +4,7 @@ import com.butterutil.commands.MainCommand
 import com.butterutil.config.Config
 import com.butterutil.config.PersistentData
 import com.butterutil.features.ItemHover
+import com.butterutil.features.TerminalEsp
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiScreen
 import net.minecraftforge.client.ClientCommandHandler
@@ -45,6 +46,7 @@ class ButterUtils {
         listOf(
             this,
             ItemHover(),
+            TerminalEsp(),
         ).forEach(MinecraftForge.EVENT_BUS::register)
     }
 
